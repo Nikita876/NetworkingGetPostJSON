@@ -19,6 +19,7 @@ class ViewController: UIViewController {
         
         let session = URLSession.shared
         session.dataTask(with: url) { (data, response, error) in
+           
             guard let response = response, let data = data else { return }
             print(response)
             print(data)
@@ -36,13 +37,13 @@ class ViewController: UIViewController {
         
         guard let url = URL(string: urlPost) else { return }
         
-        let userdData = ["Course": "Networking", "Lesson":"GET and POST Requests"]
+        let userdData = ["Course": "Networking", "Lesson":"GET and POST Requests and JSON"]
         
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
         
-        guard let httpBoby = try? JSONSerialization.data(withJSONObject: userdData, options: []) else { return }
-        request.httpBody = httpBoby
+        guard let httpBody = try? JSONSerialization.data(withJSONObject: userdData, options: []) else { return }
+        request.httpBody = httpBody
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         
         let session = URLSession.shared
