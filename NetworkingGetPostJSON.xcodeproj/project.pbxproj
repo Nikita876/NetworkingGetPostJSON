@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		44AB5297263068EF00CEACF4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44AB5296263068EF00CEACF4 /* AppDelegate.swift */; };
 		44AB5299263068EF00CEACF4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44AB5298263068EF00CEACF4 /* SceneDelegate.swift */; };
-		44AB529B263068EF00CEACF4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44AB529A263068EF00CEACF4 /* ViewController.swift */; };
 		44AB529E263068EF00CEACF4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 44AB529C263068EF00CEACF4 /* Main.storyboard */; };
 		44AB52A0263068F200CEACF4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 44AB529F263068F200CEACF4 /* Assets.xcassets */; };
 		44AB52A3263068F200CEACF4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 44AB52A1263068F200CEACF4 /* LaunchScreen.storyboard */; };
@@ -18,13 +17,15 @@
 		44AB52B52631A9FD00CEACF4 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44AB52B42631A9FD00CEACF4 /* TableViewCell.swift */; };
 		44AB52B82631ADC300CEACF4 /* Course.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44AB52B72631ADC300CEACF4 /* Course.swift */; };
 		44AB52BB2631B56900CEACF4 /* WebsiteDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44AB52BA2631B56900CEACF4 /* WebsiteDescription.swift */; };
+		44AB52C52632168200CEACF4 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44AB52C42632168200CEACF4 /* MainViewController.swift */; };
+		44AB52C8263216A100CEACF4 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44AB52C7263216A100CEACF4 /* CollectionViewCell.swift */; };
+		44AB52CC263223C600CEACF4 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44AB52CB263223C600CEACF4 /* NetworkManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		44AB5293263068EF00CEACF4 /* NetworkingGetPostJSON.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NetworkingGetPostJSON.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		44AB5296263068EF00CEACF4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		44AB5298263068EF00CEACF4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		44AB529A263068EF00CEACF4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		44AB529D263068EF00CEACF4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		44AB529F263068F200CEACF4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		44AB52A2263068F200CEACF4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -34,6 +35,9 @@
 		44AB52B42631A9FD00CEACF4 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		44AB52B72631ADC300CEACF4 /* Course.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Course.swift; sourceTree = "<group>"; };
 		44AB52BA2631B56900CEACF4 /* WebsiteDescription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebsiteDescription.swift; sourceTree = "<group>"; };
+		44AB52C42632168200CEACF4 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		44AB52C7263216A100CEACF4 /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
+		44AB52CB263223C600CEACF4 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +74,7 @@
 				44AB52BF2631BB9900CEACF4 /* Controllers */,
 				44AB52C22631BC2200CEACF4 /* Cell */,
 				44AB52BD2631B57300CEACF4 /* Models */,
+				44AB52CA2632239C00CEACF4 /* Network */,
 				44AB529C263068EF00CEACF4 /* Main.storyboard */,
 				44AB52A4263068F200CEACF4 /* Info.plist */,
 			);
@@ -88,9 +93,9 @@
 		44AB52BF2631BB9900CEACF4 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				44AB529A263068EF00CEACF4 /* ViewController.swift */,
 				44AB52B12631A9C500CEACF4 /* CoursesViewController.swift */,
 				44AB52AB26306AD600CEACF4 /* ImageViewController.swift */,
+				44AB52C42632168200CEACF4 /* MainViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -110,8 +115,17 @@
 			isa = PBXGroup;
 			children = (
 				44AB52B42631A9FD00CEACF4 /* TableViewCell.swift */,
+				44AB52C7263216A100CEACF4 /* CollectionViewCell.swift */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		44AB52CA2632239C00CEACF4 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				44AB52CB263223C600CEACF4 /* NetworkManager.swift */,
+			);
+			path = Network;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -184,12 +198,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				44AB529B263068EF00CEACF4 /* ViewController.swift in Sources */,
+				44AB52C8263216A100CEACF4 /* CollectionViewCell.swift in Sources */,
 				44AB52B82631ADC300CEACF4 /* Course.swift in Sources */,
 				44AB52BB2631B56900CEACF4 /* WebsiteDescription.swift in Sources */,
+				44AB52CC263223C600CEACF4 /* NetworkManager.swift in Sources */,
 				44AB5297263068EF00CEACF4 /* AppDelegate.swift in Sources */,
 				44AB52AC26306AD600CEACF4 /* ImageViewController.swift in Sources */,
 				44AB52B52631A9FD00CEACF4 /* TableViewCell.swift in Sources */,
+				44AB52C52632168200CEACF4 /* MainViewController.swift in Sources */,
 				44AB5299263068EF00CEACF4 /* SceneDelegate.swift in Sources */,
 				44AB52B22631A9C500CEACF4 /* CoursesViewController.swift in Sources */,
 			);

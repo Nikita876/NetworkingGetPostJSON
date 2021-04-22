@@ -8,10 +8,11 @@
 import UIKit
 
 class CoursesViewController: UIViewController {
-    // MARK: - Variable
+    // MARK: - Variables
     private var courses = [Course]()
     private var courseName: String?
     private var courseURL: String?
+    private let url = "https://swiftbook.ru//wp-content/uploads/api/api_courses"
     // MARK: - Outlet
     @IBOutlet weak var tableView: UITableView!
     // MARK: - Life cycle
@@ -22,28 +23,13 @@ class CoursesViewController: UIViewController {
     }
     // MARK: - Methods
     func fetchData() {
-        
-        let jsonUrlString = "https://swiftbook.ru//wp-content/uploads/api/api_courses"
-        
-        guard let url = URL(string: jsonUrlString) else { return }
-        
-        let session = URLSession.shared
-        session.dataTask(with: url) { (data, response, error) in
-            
-            guard let data = data else { return }
-            
-            do {
-                let decoder = JSONDecoder()
-                decoder.keyDecodingStrategy = .convertFromSnakeCase
-                self.courses = try decoder.decode([Course].self, from: data)
-                DispatchQueue.main.async {
-                    self.tableView.reloadData()
-                }
-            } catch let error {
-                print("Error serialization", error)
+        NetworkManager.fetchData(url: url) { (courses) in
+            self.courses = courses
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
             }
-            
-        }.resume()
+        }
+    
     }
     
     private func configureCell(cell: TableViewCell, for indexPath: IndexPath) {

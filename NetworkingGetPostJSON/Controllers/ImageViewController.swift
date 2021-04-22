@@ -8,8 +8,8 @@
 import UIKit
 
 class ImageViewController: UIViewController {
-    // MARK: - Variable
-    let urlImage: String = "https://applelives.com/wp-content/uploads/2016/03/iPhone-SE-11.jpeg"
+    // MARK: - Variables
+    private let url: String = "https://applelives.com/wp-content/uploads/2016/03/iPhone-SE-11.jpeg"
     // MARK: - Outlet
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
@@ -24,17 +24,12 @@ class ImageViewController: UIViewController {
     // MARK: - Method
     func fetchImage() {
         
-        guard let url = URL(string: urlImage) else { return }
+        activityIndicator.isHidden = true
+        activityIndicator.startAnimating()
         
-        let session = URLSession.shared
-        
-        session.dataTask(with: url) { (data, response, error) in
-            if let data = data, let image = UIImage(data: data) {
-                DispatchQueue.main.async {
-                    self.activityIndicator.stopAnimating()
-                    self.imageView.image = image
-                }
-            }
-        }.resume()
+        NetworkManager.downloadImage(url: url) { (image) in
+            self.activityIndicator.stopAnimating()
+            self.imageView.image = image
+        }
     }
 }
