@@ -15,12 +15,6 @@ class CoursesViewController: UIViewController {
     private let url = "https://swiftbook.ru//wp-content/uploads/api/api_courses"
     // MARK: - Outlet
     @IBOutlet weak var tableView: UITableView!
-    // MARK: - Life cycle
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        fetchData()
-    }
     // MARK: - Methods
     func fetchData() {
         NetworkManager.fetchData(url: url) { (courses) in
@@ -30,6 +24,10 @@ class CoursesViewController: UIViewController {
             }
         }
     
+    }
+    
+    func fetchDataWithAlamofire() {
+        AlamofireNetworkRequest.sendRequest(url: url)
     }
     
     private func configureCell(cell: TableViewCell, for indexPath: IndexPath) {
