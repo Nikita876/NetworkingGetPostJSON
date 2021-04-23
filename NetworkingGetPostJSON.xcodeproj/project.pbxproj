@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		44564F3E2632C89B00468A1A /* ImageProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44564F3D2632C89B00468A1A /* ImageProperties.swift */; };
 		44AB5297263068EF00CEACF4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44AB5296263068EF00CEACF4 /* AppDelegate.swift */; };
 		44AB5299263068EF00CEACF4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44AB5298263068EF00CEACF4 /* SceneDelegate.swift */; };
 		44AB529E263068EF00CEACF4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 44AB529C263068EF00CEACF4 /* Main.storyboard */; };
@@ -23,6 +24,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		44564F3D2632C89B00468A1A /* ImageProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageProperties.swift; sourceTree = "<group>"; };
 		44AB5293263068EF00CEACF4 /* NetworkingGetPostJSON.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NetworkingGetPostJSON.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		44AB5296263068EF00CEACF4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		44AB5298263068EF00CEACF4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -86,6 +88,7 @@
 			children = (
 				44AB52B72631ADC300CEACF4 /* Course.swift */,
 				44AB52BA2631B56900CEACF4 /* WebsiteDescription.swift */,
+				44564F3D2632C89B00468A1A /* ImageProperties.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -198,6 +201,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				44564F3E2632C89B00468A1A /* ImageProperties.swift in Sources */,
 				44AB52C8263216A100CEACF4 /* CollectionViewCell.swift in Sources */,
 				44AB52B82631ADC300CEACF4 /* Course.swift in Sources */,
 				44AB52BB2631B56900CEACF4 /* WebsiteDescription.swift in Sources */,
