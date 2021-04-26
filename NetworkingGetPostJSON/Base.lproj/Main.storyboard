@@ -75,7 +75,7 @@
             </objects>
             <point key="canvasLocation" x="3384.057971014493" y="53.571428571428569"/>
         </scene>
-        <!--Courses View Controller-->
+        <!--Our Courses-->
         <scene sceneID="pBX-sy-r9E">
             <objects>
                 <viewController id="ft3-ee-9px" customClass="CoursesViewController" customModule="NetworkingGetPostJSON" customModuleProvider="target" sceneMemberID="viewController">
@@ -158,7 +158,7 @@
                             <constraint firstItem="oJk-we-F0E" firstAttribute="top" secondItem="hqe-Wm-0kY" secondAttribute="top" id="rEz-6c-2TY"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="14U-8v-fpZ"/>
+                    <navigationItem key="navigationItem" title="Our Courses" id="14U-8v-fpZ"/>
                     <connections>
                         <outlet property="tableView" destination="oJk-we-F0E" id="BmF-9Q-VJj"/>
                     </connections>
