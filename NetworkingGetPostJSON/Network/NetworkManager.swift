@@ -9,6 +9,7 @@ import UIKit
 
 class NetworkManager {
     // MARK: - Methods
+    /// getRequest
     static func getRequest(url: String) {
        
         guard let url = URL(string: url) else { return }
@@ -28,7 +29,7 @@ class NetworkManager {
             }
         }.resume()
     }
-    
+    /// postRequest
     static func postRequest(url: String) {
         
         guard let url = URL(string: url) else { return }
@@ -58,7 +59,7 @@ class NetworkManager {
             }
         }.resume()
     }
-    
+    /// downloadImage
     static func downloadImage(url: String, completion: @escaping (_ image: UIImage)->()) {
         
         guard let url = URL(string: url) else { return }
@@ -73,8 +74,7 @@ class NetworkManager {
             }
         }.resume()
     }
-    
-    
+    /// fetchData
     static func fetchData(url: String, completion: @escaping (_ courses: [Course])->()) {
                 
         guard let url = URL(string: url) else { return }
@@ -92,10 +92,9 @@ class NetworkManager {
             } catch let error {
                 print("Error serialization", error)
             }
-            
         }.resume()
     }
-    
+    /// uploadImage
     static func uploadImage(url: String) {
         
         let image = UIImage(named: "Notification")!
@@ -124,7 +123,5 @@ class NetworkManager {
                 }
             }
         }.resume()
-        
     }
-    
 }
