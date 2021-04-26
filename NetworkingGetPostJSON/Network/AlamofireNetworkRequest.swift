@@ -9,7 +9,11 @@ import Foundation
 import Alamofire
 
 class AlamofireNetworkRequest {
-
+    // MARK: - Variables
+    static var onProgress: ((Double) -> ())?
+    static var completed: ((String) ->())?
+    // MARK: - Methods
+    /// sendRequest
     static func sendRequest(url: String, completion: @escaping (_ courses: [Course])->()) {
 
         guard let url = URL(string: url) else { return }
@@ -25,7 +29,23 @@ class AlamofireNetworkRequest {
             }
         }
     }
-    
+    /// downloadImage
+    static func downloadImage(url: String, completion: @escaping (_ image: UIImage)->()) {
+        
+        guard let url = URL(string: url) else { return }
+        
+        AF.request(url).responseData { (responseData) in
+            
+            switch responseData.result {
+            case .success(let data):
+                guard let image = UIImage(data: data) else { return }
+                completion(image)
+            case .failure(let error):
+                print(error)
+            }
+        }
+    }
+    /// responseData
     static func responseData(url: String) {
         AF.request(url).responseData { (responseData) in
             
@@ -38,7 +58,7 @@ class AlamofireNetworkRequest {
             }
         }
     }
-    
+    /// responseString
     static func responseString(url: String) {
         AF.request(url).responseData { (responseString) in
             
@@ -50,7 +70,7 @@ class AlamofireNetworkRequest {
             }
         }
     }
-    
+    /// response
     static func response(url: String) {
         AF.request(url).responseData { (response) in
             
@@ -60,6 +80,30 @@ class AlamofireNetworkRequest {
             else { return}
             
             print(string)
+        }
+    }
+    /// downloadImageWithProgress
+    static func downloadImageWithProgress(url: String, completion: @escaping (_ image: UIImage) -> ()) {
+        guard let url = URL(string: url) else { return }
+        
+        AF.request(url).validate().downloadProgress { (progress) in
+            print("TotalUnitCount: \(progress.totalUnitCount)\n")
+            print("CompletedUnitCount:\(progress.completedUnitCount)\n")
+            print("FractionCompleted:\(progress.fractionCompleted)\n")
+            print("LoclizedDescription:\(progress.localizedDescription!)\n")
+            print("------------------------------------------------------")
+            
+            self.onProgress?(progress.fractionCompleted)
+            self.completed?(progress.localizedDescription)
+        }.response { (response) in
+            guard let data = response.data,
+                  let image = UIImage(data: data)
+            else { return }
+            
+            DispatchQueue.main.async {
+                completion(image)
+            }
+            
         }
     }
 }
