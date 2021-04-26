@@ -16,10 +16,14 @@ enum Actions: String, CaseIterable {
     case uploadImage = "Upload Image"
     case downloadFile = "Download File"
     case ourCoursesAlamofire = "Our Courses (Alamofire)"
+    case responseData = "Response Data"
+    case responseString = "Response String"
+    case response = "Response"
 }
 
 private let reuseIdentifier = "Cell"
 private let url = "https://jsonplaceholder.typicode.com/posts"
+private let swiftbookApi = "https://swiftbook.ru//wp-content/uploads/api/api_courses"
 private let uploadImage = "https://api.imgur.com/3/image"
 
 class MainViewController: UICollectionViewController {
@@ -121,6 +125,13 @@ class MainViewController: UICollectionViewController {
             dataProvider.startDownload()
         case .ourCoursesAlamofire:
             performSegue(withIdentifier: "OurCoursesWithAlamofire", sender: self)
+        case .responseData:
+            performSegue(withIdentifier: "ResponseData", sender: self)
+            AlamofireNetworkRequest.responseData(url: swiftbookApi)
+        case .responseString:
+            AlamofireNetworkRequest.responseString(url: swiftbookApi)
+        case .response:
+            AlamofireNetworkRequest.response(url: swiftbookApi)
         }
     }
     // MARK: - Navigation
@@ -131,6 +142,8 @@ class MainViewController: UICollectionViewController {
         case "OurCourses":
             coursesVC?.fetchData()
         case "OurCoursesWithAlamofire":
+            coursesVC?.fetchDataWithAlamofire()
+        case "ResponseData":
             coursesVC?.fetchDataWithAlamofire()
         default:
             break
