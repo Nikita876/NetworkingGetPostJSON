@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="mjB-iX-Get">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="uNs-Kk-TS6">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
@@ -221,6 +221,53 @@
             </objects>
             <point key="canvasLocation" x="4255.072463768116" y="-353.57142857142856"/>
         </scene>
+        <!--Login View Controller-->
+        <scene sceneID="ruv-Rg-0Gf">
+            <objects>
+                <viewController id="uNs-Kk-TS6" customClass="LoginViewController" customModule="NetworkingGetPostJSON" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="pfM-zl-cYp">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="firebaselogo" translatesAutoresizingMaskIntoConstraints="NO" id="xFd-4v-m5e">
+                                <rect key="frame" x="157" y="74" width="100" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="xFd-4v-m5e" secondAttribute="height" multiplier="1:1" id="G39-0N-phH"/>
+                                    <constraint firstAttribute="height" constant="100" id="Irc-CD-p4A"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Networking Demo App" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9VB-53-zQB">
+                                <rect key="frame" x="107" y="204" width="200" height="58"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="odR-If-UiL"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="24"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="By Swiftbook" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LKZ-20-v4E">
+                                <rect key="frame" x="151.5" y="267" width="111.5" height="24"/>
+                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="20"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="4zb-2n-gbh"/>
+                        <color key="backgroundColor" systemColor="systemGrayColor"/>
+                        <constraints>
+                            <constraint firstItem="xFd-4v-m5e" firstAttribute="top" secondItem="4zb-2n-gbh" secondAttribute="top" constant="30" id="6Cn-h7-8dd"/>
+                            <constraint firstItem="LKZ-20-v4E" firstAttribute="centerX" secondItem="pfM-zl-cYp" secondAttribute="centerX" id="KMc-rC-FBh"/>
+                            <constraint firstItem="xFd-4v-m5e" firstAttribute="centerX" secondItem="pfM-zl-cYp" secondAttribute="centerX" id="KZv-Z3-aBF"/>
+                            <constraint firstItem="LKZ-20-v4E" firstAttribute="top" secondItem="9VB-53-zQB" secondAttribute="bottom" constant="5" id="PcY-KV-k8T"/>
+                            <constraint firstItem="9VB-53-zQB" firstAttribute="top" secondItem="xFd-4v-m5e" secondAttribute="bottom" constant="30" id="awh-gH-yRa"/>
+                            <constraint firstItem="9VB-53-zQB" firstAttribute="centerX" secondItem="pfM-zl-cYp" secondAttribute="centerX" id="oo9-g2-n0d"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GeP-la-L3F" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1617" y="54"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="FWs-a9-dzH">
             <objects>
@@ -245,8 +292,12 @@
         <segue reference="Da8-hC-1Km"/>
     </inferredMetricsTieBreakers>
     <resources>
+        <image name="firebaselogo" width="180" height="180"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGrayColor">
+            <color red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
