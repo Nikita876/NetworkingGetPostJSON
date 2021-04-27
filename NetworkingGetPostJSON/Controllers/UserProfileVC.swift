@@ -1,5 +1,5 @@
 //
-//  LoginViewController.swift
+//  UserProfileVC.swift
 //  NetworkingGetPostJSON
 //
 //  Created by Никита Коголенок on 27.04.21.
@@ -8,15 +8,18 @@
 import UIKit
 import FBSDKLoginKit
 
-class LoginViewController: UIViewController {
-    let gradient = CAGradientLayer()
+class UserProfileVC: UIViewController {
     // MARK - FacebookLogin Button
     lazy var fbLoginButton: UIButton = {
         let loginButton = FBLoginButton()
-        loginButton.frame = CGRect(x: 32, y: 320, width: view.frame.width - 64, height: 50)
+        loginButton.frame = CGRect(x: 32,
+                                   y: view.frame.height - 172,
+                                   width: view.frame.width - 64,
+                                   height: 50)
         loginButton.delegate = self
         return loginButton
     }()
+    
     // MARK: - Life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,25 +37,33 @@ class LoginViewController: UIViewController {
         view.addSubview(fbLoginButton)
     }
 }
+
 // MARK: - Facebook SDK LoginViewController: LoginButtonDelegate
-extension LoginViewController: LoginButtonDelegate {
+extension UserProfileVC: LoginButtonDelegate {
     func loginButton(_ loginButton: FBLoginButton, didCompleteWith result: LoginManagerLoginResult?, error: Error?) {
         
         if error != nil {
             print(error)
             return
         }
-        guard AccessToken.isCurrentAccessTokenActive else { return }
-        openMainViewController()
-        print("Successfully logged in with faceook...")
+        
+        print("Successfully logged in with facebook...")
     }
     
     func loginButtonDidLogOut(_ loginButton: FBLoginButton) {
-        
-        print("Did log out of facebook")
+        print("Did log out facebook")
+        openLoginViewController()
     }
     
-    private func openMainViewController() {
-        dismiss(animated: true)
+    private func openLoginViewController() {
+        if !(AccessToken.isCurrentAccessTokenActive) {
+            
+            DispatchQueue.main.async {
+                let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+                let loginViewController = storyBoard.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
+                self.present(loginViewController, animated: true)
+                return
+            }
+        }
     }
 }
