@@ -5,6 +5,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -26,25 +27,26 @@
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="HMU-gB-gpr" customClass="CollectionViewCell" customModule="NetworkingGetPostJSON" customModuleProvider="target">
                                 <rect key="frame" x="37" y="40" width="340" height="100"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="JPh-NH-LiN">
                                     <rect key="frame" x="0.0" y="0.0" width="340" height="100"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s3R-Jx-hmb">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s3R-Jx-hmb">
                                             <rect key="frame" x="0.0" y="0.0" width="340" height="100"/>
                                             <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="28"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
-                                </view>
+                                    <constraints>
+                                        <constraint firstAttribute="bottom" secondItem="s3R-Jx-hmb" secondAttribute="bottom" id="SkF-ST-zau"/>
+                                        <constraint firstItem="s3R-Jx-hmb" firstAttribute="top" secondItem="JPh-NH-LiN" secondAttribute="top" id="bgZ-tP-nvy"/>
+                                        <constraint firstAttribute="trailing" secondItem="s3R-Jx-hmb" secondAttribute="trailing" id="gus-Lb-NPE"/>
+                                        <constraint firstItem="s3R-Jx-hmb" firstAttribute="leading" secondItem="JPh-NH-LiN" secondAttribute="leading" id="ygK-Yn-BjU"/>
+                                    </constraints>
+                                </collectionViewCellContentView>
                                 <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="s3R-Jx-hmb" secondAttribute="bottom" id="SkF-ST-zau"/>
-                                    <constraint firstItem="s3R-Jx-hmb" firstAttribute="top" secondItem="HMU-gB-gpr" secondAttribute="top" id="bgZ-tP-nvy"/>
-                                    <constraint firstAttribute="trailing" secondItem="s3R-Jx-hmb" secondAttribute="trailing" id="gus-Lb-NPE"/>
-                                    <constraint firstItem="s3R-Jx-hmb" firstAttribute="leading" secondItem="HMU-gB-gpr" secondAttribute="leading" id="ygK-Yn-BjU"/>
-                                </constraints>
+                                <size key="customSize" width="340" height="100"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                         <integer key="value" value="5"/>
@@ -73,7 +75,7 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Eq7-e0-wNW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3384.057971014493" y="53.571428571428569"/>
+            <point key="canvasLocation" x="3383" y="-68"/>
         </scene>
         <!--Our Courses-->
         <scene sceneID="pBX-sy-r9E">
@@ -266,52 +268,65 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GeP-la-L3F" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="301" y="54"/>
+            <point key="canvasLocation" x="787" y="54"/>
         </scene>
-        <!--User ProfileVC-->
-        <scene sceneID="7iC-dF-gmU">
+        <!--Item 2-->
+        <scene sceneID="l7j-NH-M9B">
             <objects>
-                <viewController id="Bsj-7I-fIi" customClass="UserProfileVC" customModule="NetworkingGetPostJSON" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="afP-jb-ErX">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                <viewController id="69c-LW-q8r" customClass="UserProfileVC" customModule="NetworkingGetPostJSON" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Gni-yf-E2I">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Logged in With Facebook" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5jh-rp-VAl">
-                                <rect key="frame" x="132" y="194" width="150" height="86.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Logged in With Facebook" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pUC-h7-0I0">
+                                <rect key="frame" x="132" y="150" width="150" height="58"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="150" id="8J7-fP-PTg"/>
+                                    <constraint firstAttribute="width" constant="150" id="Z6Y-Ae-CGs"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="24"/>
+                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="24"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="KTL-ZC-hMd">
+                                <rect key="frame" x="197" y="169" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
-                        <viewLayoutGuide key="safeArea" id="Svp-Wb-LrD"/>
+                        <viewLayoutGuide key="safeArea" id="Rk1-QL-BHG"/>
                         <color key="backgroundColor" systemColor="systemGrayColor"/>
                         <constraints>
-                            <constraint firstItem="5jh-rp-VAl" firstAttribute="centerX" secondItem="afP-jb-ErX" secondAttribute="centerX" id="S44-oK-jg8"/>
-                            <constraint firstItem="5jh-rp-VAl" firstAttribute="top" secondItem="Svp-Wb-LrD" secondAttribute="top" constant="150" id="eaR-r3-dZj"/>
+                            <constraint firstItem="pUC-h7-0I0" firstAttribute="top" secondItem="Rk1-QL-BHG" secondAttribute="top" constant="150" id="CvE-rU-Nzh"/>
+                            <constraint firstItem="KTL-ZC-hMd" firstAttribute="centerY" secondItem="pUC-h7-0I0" secondAttribute="centerY" id="JGe-Jx-ucB"/>
+                            <constraint firstItem="KTL-ZC-hMd" firstAttribute="centerX" secondItem="pUC-h7-0I0" secondAttribute="centerX" id="XgI-kN-bUa"/>
+                            <constraint firstItem="pUC-h7-0I0" firstAttribute="centerX" secondItem="Gni-yf-E2I" secondAttribute="centerX" id="rxJ-Oh-U86"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="cmu-aP-Ywj"/>
+                    <tabBarItem key="tabBarItem" title="Item 2" id="bGQ-Ku-lBY"/>
+                    <navigationItem key="navigationItem" id="Gdw-Bd-gb9"/>
+                    <connections>
+                        <outlet property="activityIndicator" destination="KTL-ZC-hMd" id="RE2-cH-y4d"/>
+                        <outlet property="userNameLabel" destination="pUC-h7-0I0" id="V9i-2t-EM1"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Sc3-WJ-icu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="h5R-0X-aKW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3384" y="755"/>
+            <point key="canvasLocation" x="3383" y="634"/>
         </scene>
         <!--Tab Bar Controller-->
-        <scene sceneID="nla-Ub-f78">
+        <scene sceneID="Jy7-ec-OEk">
             <objects>
-                <tabBarController id="96s-av-fYm" sceneMemberID="viewController">
-                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="PbL-tA-L2l">
+                <tabBarController id="iGW-oI-VjE" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="kAT-2L-YIy">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
+                    <connections>
+                        <segue destination="69c-LW-q8r" kind="show" id="5iC-Jl-8iA"/>
+                    </connections>
                 </tabBarController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="6nK-GG-DF3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fR2-Om-kfT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1570" y="54"/>
+            <point key="canvasLocation" x="1645" y="54"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="FWs-a9-dzH">

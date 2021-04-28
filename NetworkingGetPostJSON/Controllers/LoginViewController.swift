@@ -119,7 +119,6 @@ extension LoginViewController: LoginButtonDelegate {
             if let userData = result as? [String: Any] {
                 self.userProfile = UserProfile(data: userData)
                 print(userData)
-                print("Id is", self.userProfile?.id ?? nil)
                 print("Name is", self.userProfile?.name ?? nil)
                 print("Email is", self.userProfile?.email ?? nil)
                 
