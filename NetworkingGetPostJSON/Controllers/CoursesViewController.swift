@@ -26,7 +26,6 @@ class CoursesViewController: UIViewController {
                 self.tableView.reloadData()
             }
         }
-    
     }
     /// fetchDataWithAlamofire
     func fetchDataWithAlamofire() {
