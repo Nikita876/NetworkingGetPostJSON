@@ -8,9 +8,11 @@
 import UIKit
 import FBSDKLoginKit
 import FirebaseAuth
+import FirebaseDatabase
 
 class LoginViewController: UIViewController {
-    let gradient = CAGradientLayer()
+    // MARK: - Variable
+    var userProfile: UserProfile?
     // MARK - FacebookLogin Button
     lazy var fbLoginButton: UIButton = {
         let loginButton = FBLoginButton()
@@ -60,9 +62,8 @@ extension LoginViewController: LoginButtonDelegate {
         }
         guard AccessToken.isCurrentAccessTokenActive else { return }
         
-        fetchFacebookFields()
-        openMainViewController()
         print("Successfully logged in with faceook...")
+        singIntoFirebase()
     }
     
     func loginButtonDidLogOut(_ loginButton: FBLoginButton) {
@@ -86,8 +87,6 @@ extension LoginViewController: LoginButtonDelegate {
             if result.isCancelled { return }
             else {
                 self.singIntoFirebase()
-                self.fetchFacebookFields()
-                self.openMainViewController()
             }
         }
     }
@@ -103,7 +102,9 @@ extension LoginViewController: LoginButtonDelegate {
                 return
             }
             
-            print("Successfully logged in with our FB user: ", user!)
+            print("Successfully logged in with our FB user: ")
+            
+            self.fetchFacebookFields()
         }
     }
     
@@ -116,8 +117,31 @@ extension LoginViewController: LoginButtonDelegate {
             }
             
             if let userData = result as? [String: Any] {
+                self.userProfile = UserProfile(data: userData)
                 print(userData)
+                print("Id is", self.userProfile?.id ?? nil)
+                print("Name is", self.userProfile?.name ?? nil)
+                print("Email is", self.userProfile?.email ?? nil)
+                
+                self.saveIntoFirebase()
             }
         }
+    }
+    
+    private func saveIntoFirebase() {
+        guard let uid = Auth.auth().currentUser?.uid else { return }
+        
+        let userData = ["name": userProfile?.name, "email": userProfile?.email] as [String : Any]
+        let values = [uid: userData]
+        
+        Database.database().reference().child("users").updateChildValues(values) { (error, _) in
+            if let error = error {
+                print(error)
+                return
+            }
+            print("Seccessfully saved into firebase database")
+            self.openMainViewController()
+        }
+        
     }
 }
