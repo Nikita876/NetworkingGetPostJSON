@@ -14,8 +14,7 @@ class ImageViewController: UIViewController {
     private let largeImageUrl = "https://i.imgur.com/3416rvI.jpg"
     // MARK: - Outlet
     @IBOutlet weak var imageView: UIImageView!
-    @IBOutlet weak var activityIndicator:
-        UIActivityIndicatorView!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var completedLabel: UILabel!
     @IBOutlet weak var progressView: UIProgressView!
     
@@ -31,6 +30,7 @@ class ImageViewController: UIViewController {
     // MARK: - Methods
     func fetchImage() {
         NetworkManager.downloadImage(url: url) { (image) in
+            self.activityIndicator.stopAnimating()
             self.imageView.image = image
         }
     }

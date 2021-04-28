@@ -154,7 +154,6 @@ extension LoginViewController: LoginButtonDelegate {
             print("Successfully saved into firebase database")
             self.openMainViewController()
         }
-        
     }
 }
 // MARK: - Google SDK LoginViewController: GIDSignInDelegate
