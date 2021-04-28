@@ -26,6 +26,7 @@
 		44FD0DB12637F68300232291 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44FD0DB02637F68300232291 /* LoginViewController.swift */; };
 		44FD0DBB26380B2200232291 /* UserProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44FD0DBA26380B2200232291 /* UserProfileVC.swift */; };
 		44FD0DC526393F8800232291 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44FD0DC426393F8800232291 /* Extensions.swift */; };
+		44FD0DC9263949C800232291 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 44FD0DC8263949C800232291 /* GoogleService-Info.plist */; };
 		FEBEC32176A9C4BFB6515AE5 /* Pods_NetworkingGetPostJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA8D03FAA400508359639962 /* Pods_NetworkingGetPostJSON.framework */; };
 /* End PBXBuildFile section */
 
@@ -52,6 +53,7 @@
 		44FD0DB02637F68300232291 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		44FD0DBA26380B2200232291 /* UserProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileVC.swift; sourceTree = "<group>"; };
 		44FD0DC426393F8800232291 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		44FD0DC8263949C800232291 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		77FD01276F09D72EAD81755C /* Pods-NetworkingGetPostJSON.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NetworkingGetPostJSON.release.xcconfig"; path = "Target Support Files/Pods-NetworkingGetPostJSON/Pods-NetworkingGetPostJSON.release.xcconfig"; sourceTree = "<group>"; };
 		BA8D03FAA400508359639962 /* Pods_NetworkingGetPostJSON.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NetworkingGetPostJSON.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C22B9D84D64A7C0204BE1400 /* Pods-NetworkingGetPostJSON.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NetworkingGetPostJSON.debug.xcconfig"; path = "Target Support Files/Pods-NetworkingGetPostJSON/Pods-NetworkingGetPostJSON.debug.xcconfig"; sourceTree = "<group>"; };
@@ -99,6 +101,7 @@
 				44AB52CA2632239C00CEACF4 /* Network */,
 				44AB529C263068EF00CEACF4 /* Main.storyboard */,
 				44AB52A4263068F200CEACF4 /* Info.plist */,
+				44FD0DC8263949C800232291 /* GoogleService-Info.plist */,
 			);
 			path = NetworkingGetPostJSON;
 			sourceTree = "<group>";
@@ -240,6 +243,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				44AB52A3263068F200CEACF4 /* LaunchScreen.storyboard in Resources */,
+				44FD0DC9263949C800232291 /* GoogleService-Info.plist in Resources */,
 				44AB52A0263068F200CEACF4 /* Assets.xcassets in Resources */,
 				44AB529E263068EF00CEACF4 /* Main.storyboard in Resources */,
 			);

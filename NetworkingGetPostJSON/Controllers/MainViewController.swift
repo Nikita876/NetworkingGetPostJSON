@@ -8,6 +8,7 @@
 import UIKit
 import UserNotifications
 import FBSDKLoginKit
+import FirebaseAuth
 
 enum Actions: String, CaseIterable {
     case downloadImage = "Download Image"
@@ -174,7 +175,7 @@ class MainViewController: UICollectionViewController {
     }
     
 }
-// MainViewController
+// MARK: - MainViewController
 extension MainViewController {
     private func registerNotification() {
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound]) { (_, _) in
@@ -192,10 +193,10 @@ extension MainViewController {
         UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
     }
 }
-// Facebook SDK
+// MARK: - Facebook SDK
 extension MainViewController {
     private func checkLoggedIn() {
-        if !(AccessToken.isCurrentAccessTokenActive) {
+        if Auth.auth().currentUser == nil {
             
             DispatchQueue.main.async {
                 let storyBoard = UIStoryboard(name: "Main", bundle: nil)

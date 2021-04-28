@@ -7,6 +7,7 @@
 
 import UIKit
 import FBSDKLoginKit
+import FirebaseAuth
 
 class LoginViewController: UIViewController {
     let gradient = CAGradientLayer()
@@ -82,8 +83,24 @@ extension LoginViewController: LoginButtonDelegate {
             guard let result = result else { return }
             if result.isCancelled { return }
             else {
+                self.singIntoFirebase()
                 self.openMainViewController()
             }
+        }
+    }
+    
+    private func singIntoFirebase() {
+        let accessToken = AccessToken.current
+        guard let accessTokenString = accessToken?.tokenString else { return }
+        let credentials = FacebookAuthProvider.credential(withAccessToken: accessTokenString)
+        Auth.auth().signIn(with: credentials) { (user, error) in
+            
+            if let error = error {
+                print("Something went wrong with our facebook user: ", error)
+                return
+            }
+            
+            print("Successfully logged in with our FB user: ", user!)
         }
     }
 }
