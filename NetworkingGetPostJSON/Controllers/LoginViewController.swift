@@ -9,11 +9,12 @@ import UIKit
 import FBSDKLoginKit
 import FirebaseAuth
 import FirebaseDatabase
+import GoogleSignIn
 
 class LoginViewController: UIViewController {
     // MARK: - Variable
     var userProfile: UserProfile?
-    // MARK - FacebookLogin Button
+    /// MARK: - FacebookLogin Button
     lazy var fbLoginButton: UIButton = {
         let loginButton = FBLoginButton()
         loginButton.frame = CGRect(x: 32, y: 360, width: view.frame.width - 64, height: 50)
@@ -21,6 +22,7 @@ class LoginViewController: UIViewController {
         
         return loginButton
     }()
+    /// MARK: - CustomFBLoginButton
     lazy var customFBLoginButton: UIButton = {
         let loginButton = UIButton()
         loginButton.backgroundColor = UIColor(hexValue: "#3B5999", alpha: 1)
@@ -33,12 +35,22 @@ class LoginViewController: UIViewController {
         
         return loginButton
     }()
+    /// MARK: - GoogleLoginButton
+    lazy var googleLoginButton: GIDSignInButton = {
+        let loginButton = GIDSignInButton()
+        loginButton.frame = CGRect(x: 32, y: 360 + 80 + 80, width: view.frame.width - 64, height: 50)
+        
+        return loginButton
+    }()
     // MARK: - Life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
         view.addVerticalGradientLayer(topColor: primaryColor, bottomColor: secondaryColor)
         setupViews()
+        
+        GIDSignIn.sharedInstance().delegate = self
+        GIDSignIn.sharedInstance().presentingViewController = self
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -50,6 +62,7 @@ class LoginViewController: UIViewController {
     private func setupViews() {
         view.addSubview(fbLoginButton)
         view.addSubview(customFBLoginButton)
+        view.addSubview(googleLoginButton)
     }
 }
 // MARK: - Facebook SDK LoginViewController: LoginButtonDelegate
@@ -138,9 +151,34 @@ extension LoginViewController: LoginButtonDelegate {
                 print(error)
                 return
             }
-            print("Seccessfully saved into firebase database")
+            print("Successfully saved into firebase database")
             self.openMainViewController()
         }
         
+    }
+}
+// MARK: - Google SDK LoginViewController: GIDSignInDelegate
+extension LoginViewController: GIDSignInDelegate {
+    func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
+        
+        if let error = error {
+            print("Failsed to log into Google: ", error)
+            return
+        }
+        print("Successfully logged into Google")
+        
+        guard let authentication = user.authentication else { return }
+        let credential = GoogleAuthProvider.credential(withIDToken: authentication.idToken,
+                                                       accessToken: authentication.accessToken)
+        
+        Auth.auth().signIn(with: credential) { (user, error) in
+            
+            if let error = error {
+                print("Something went wrong with our Google user: ", error)
+                return
+            }
+            print("Successfully logged into Firebase with Google")
+            self.openMainViewController()
+        }
     }
 }
