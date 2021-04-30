@@ -323,7 +323,7 @@
                                             <constraint firstAttribute="height" constant="23" id="9zF-BW-Kc9"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" textContentType="password"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" secureTextEntry="YES" textContentType="password"/>
                                     </textField>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7Le-O4-FcN">
                                         <rect key="frame" x="12" y="190" width="318" height="1"/>
@@ -472,7 +472,7 @@
                                             <constraint firstAttribute="height" constant="23" id="My3-q6-z8d"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" textContentType="password"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" secureTextEntry="YES" textContentType="password"/>
                                     </textField>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qyK-xb-jj3">
                                         <rect key="frame" x="12" y="266" width="318" height="1"/>
@@ -493,7 +493,7 @@
                                             <constraint firstAttribute="height" constant="23" id="4fK-bY-lcV"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" textContentType="password"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" secureTextEntry="YES" textContentType="password"/>
                                     </textField>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PZQ-S2-zMr">
                                         <rect key="frame" x="12" y="342" width="318" height="1"/>
@@ -506,6 +506,7 @@
                                 <constraints>
                                     <constraint firstItem="PZQ-S2-zMr" firstAttribute="top" secondItem="7rG-Gu-nww" secondAttribute="bottom" constant="4" id="0hs-xE-ccV"/>
                                     <constraint firstItem="7ja-sa-q9R" firstAttribute="leading" secondItem="wIl-F8-Rmw" secondAttribute="leading" constant="12" id="1fs-rp-pLa"/>
+                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="T8C-Dq-bHO" secondAttribute="trailing" constant="173" id="5G2-ZI-IC2"/>
                                     <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="nx8-ac-qMD" secondAttribute="trailing" constant="283.5" id="6Tr-A8-41e"/>
                                     <constraint firstAttribute="trailing" secondItem="kYp-Ie-HuP" secondAttribute="trailing" constant="12" id="6hd-vT-L6Y"/>
                                     <constraint firstAttribute="height" constant="360" id="82Z-bu-Hsa"/>
