@@ -42,6 +42,19 @@ class LoginViewController: UIViewController {
         
         return loginButton
     }()
+    /// MARK: -
+    lazy var customGoogleLoginButton: UIButton = {
+        let loginButton = UIButton()
+        loginButton.frame = CGRect(x: 32, y: 360 + 80 + 80 + 80, width: view.frame.width - 64, height: 50)
+        loginButton.backgroundColor = .white
+        loginButton.setTitle("Login with Google", for: .normal)
+        loginButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
+        loginButton.setTitleColor(.black, for: .normal)
+        loginButton.layer.cornerRadius = 4
+        loginButton.addTarget(self, action: #selector(handleCustomGoogleLogin), for: .touchUpInside)
+        
+        return loginButton
+    }()
     // MARK: - Life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -63,6 +76,7 @@ class LoginViewController: UIViewController {
         view.addSubview(fbLoginButton)
         view.addSubview(customFBLoginButton)
         view.addSubview(googleLoginButton)
+        view.addSubview(customGoogleLoginButton)
     }
 }
 // MARK: - Facebook SDK LoginViewController: LoginButtonDelegate
@@ -184,5 +198,9 @@ extension LoginViewController: GIDSignInDelegate {
             print("Successfully logged into Firebase with Google")
             self.saveIntoFirebase()
         }
+    }
+    
+    @objc private func handleCustomGoogleLogin() {
+        GIDSignIn.sharedInstance()?.signIn()
     }
 }

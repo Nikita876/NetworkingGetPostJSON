@@ -332,11 +332,10 @@
         <!--list-->
         <scene sceneID="FWs-a9-dzH">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="mjB-iX-Get" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" toolbarHidden="NO" id="mjB-iX-Get" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="list" image="list" id="pW1-RR-wU9"/>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="qBC-8A-lTi"/>
-                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="lFY-Zf-thz">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
