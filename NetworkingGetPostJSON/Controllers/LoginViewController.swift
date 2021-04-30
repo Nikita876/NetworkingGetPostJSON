@@ -12,7 +12,7 @@ import FirebaseDatabase
 import GoogleSignIn
 
 class LoginViewController: UIViewController {
-    // MARK: - Variable
+    // MARK: - Variables
     var userProfile: UserProfile?
     /// MARK: - FacebookLogin Button
     lazy var fbLoginButton: UIButton = {
@@ -38,20 +38,29 @@ class LoginViewController: UIViewController {
     /// MARK: - GoogleLoginButton
     lazy var googleLoginButton: GIDSignInButton = {
         let loginButton = GIDSignInButton()
-        loginButton.frame = CGRect(x: 32, y: 360 + 80 + 80, width: view.frame.width - 64, height: 50)
+        loginButton.frame = CGRect(x: 32, y: 360 + 160, width: view.frame.width - 64, height: 50)
         
         return loginButton
     }()
-    /// MARK: -
+    /// MARK: - customGoogleLoginButton
     lazy var customGoogleLoginButton: UIButton = {
         let loginButton = UIButton()
-        loginButton.frame = CGRect(x: 32, y: 360 + 80 + 80 + 80, width: view.frame.width - 64, height: 50)
+        loginButton.frame = CGRect(x: 32, y: 360 + 240, width: view.frame.width - 64, height: 50)
         loginButton.backgroundColor = .white
         loginButton.setTitle("Login with Google", for: .normal)
         loginButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
         loginButton.setTitleColor(.black, for: .normal)
         loginButton.layer.cornerRadius = 4
         loginButton.addTarget(self, action: #selector(handleCustomGoogleLogin), for: .touchUpInside)
+        
+        return loginButton
+    }()
+    /// MARK: - signInWithEmail
+    lazy var signInWithEmail: UIButton = {
+        let loginButton = UIButton()
+        loginButton.frame = CGRect(x: 32, y: 360 + 320, width: view.frame.width - 64, height: 50)
+        loginButton.setTitle("Sign In with Email", for: .normal)
+        loginButton.addTarget(self, action: #selector(openSignInVC), for: .touchUpInside)
         
         return loginButton
     }()
@@ -77,6 +86,15 @@ class LoginViewController: UIViewController {
         view.addSubview(customFBLoginButton)
         view.addSubview(googleLoginButton)
         view.addSubview(customGoogleLoginButton)
+        view.addSubview(signInWithEmail)
+    }
+    
+    private func openMainViewController() {
+        dismiss(animated: true)
+    }
+    
+    @objc private func openSignInVC() {
+        performSegue(withIdentifier: "SignIn", sender: self)
     }
 }
 // MARK: - Facebook SDK LoginViewController: LoginButtonDelegate
@@ -96,10 +114,6 @@ extension LoginViewController: LoginButtonDelegate {
     func loginButtonDidLogOut(_ loginButton: FBLoginButton) {
         
         print("Did log out of facebook")
-    }
-    
-    private func openMainViewController() {
-        dismiss(animated: true)
     }
     
     @objc private func handleCustomFBLogin() {
