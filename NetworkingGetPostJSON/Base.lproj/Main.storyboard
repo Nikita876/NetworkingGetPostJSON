@@ -323,7 +323,7 @@
                                             <constraint firstAttribute="height" constant="23" id="9zF-BW-Kc9"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" textContentType="password"/>
                                     </textField>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7Le-O4-FcN">
                                         <rect key="frame" x="12" y="190" width="318" height="1"/>
@@ -472,7 +472,7 @@
                                             <constraint firstAttribute="height" constant="23" id="My3-q6-z8d"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" textContentType="password"/>
                                     </textField>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qyK-xb-jj3">
                                         <rect key="frame" x="12" y="266" width="318" height="1"/>
@@ -493,7 +493,7 @@
                                             <constraint firstAttribute="height" constant="23" id="4fK-bY-lcV"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" textContentType="password"/>
                                     </textField>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PZQ-S2-zMr">
                                         <rect key="frame" x="12" y="342" width="318" height="1"/>

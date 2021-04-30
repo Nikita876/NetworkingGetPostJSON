@@ -38,6 +38,12 @@ class SignUpViewController: UIViewController {
         view.addSubview(continueButton)
         setContinueButton(enable: false)
         
+        activityIndicator = UIActivityIndicatorView(style: .medium)
+        activityIndicator.color = secondaryColor
+        activityIndicator.frame = CGRect(x: 0, y: 0, width: 50, height: 50)
+        activityIndicator.center = continueButton.center
+        view.addSubview(activityIndicator)
+        
         userNameTextField.addTarget(self, action: #selector(textFieldChanged), for: .editingChanged)
         emailTextField.addTarget(self, action: #selector(textFieldChanged), for: .editingChanged)
         passwordTextField.addTarget(self, action: #selector(textFieldChanged), for: .editingChanged)
@@ -81,10 +87,14 @@ class SignUpViewController: UIViewController {
         
         continueButton.center = CGPoint(x: view.center.x,
                                         y: view.frame.height - keyboardFrame.height - 16.0 - continueButton.frame.height / 2)
+        
+        activityIndicator.center = continueButton.center
     }
     
     @objc private func handleSignUp() {
-        
+        setContinueButton(enable: false)
+        continueButton.setTitle("", for: .normal)
+        activityIndicator.startAnimating()
     }
     // MARK: - Action
     @IBAction func goBack(_ sender: Any) {
