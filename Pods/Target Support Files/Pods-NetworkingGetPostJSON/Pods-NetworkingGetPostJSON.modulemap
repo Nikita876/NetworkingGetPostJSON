@@ -1,0 +1,6 @@
+framework module Pods_NetworkingGetPostJSON {
+  umbrella header "Pods-NetworkingGetPostJSON-umbrella.h"
+
+  export *
+  module * { export * }
+}
